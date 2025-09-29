@@ -1,0 +1,1892 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maths & Chemistry Group Portal</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #e0f7fa, #fce4ec);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, #004d40, #00796b);
+      color: white;
+      padding: 20px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      background-color: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+
+    .auth-header-btn {
+      background: linear-gradient(135deg, #d81b60, #ad1457);
+      padding: 10px 25px;
+      border-radius: 25px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .auth-header-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(216,27,96,0.4);
+    }
+
+    .logout-header-btn {
+      background: linear-gradient(135deg, #d81b60, #ad1457);
+      padding: 10px 25px;
+      border-radius: 25px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .logout-header-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(216,27,96,0.4);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* Landing Page Styles */
+    .landing-page {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 20px;
+      text-align: center;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-section h1 {
+      font-size: 48px;
+      color: #00796b;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      line-height: 1.2;
+    }
+
+    .hero-section p {
+      font-size: 20px;
+      color: #555;
+      margin-bottom: 40px;
+      line-height: 1.6;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 40px;
+      font-size: 16px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #00796b, #004d40);
+      color: white;
+      box-shadow: 0 4px 15px rgba(0,121,107,0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,121,107,0.6);
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, #d81b60, #ad1457);
+      color: white;
+      box-shadow: 0 4px 15px rgba(216,27,96,0.4);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(216,27,96,0.6);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 35px 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .feature-icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .feature-card h3 {
+      color: #00796b;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .feature-card p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Auth Section */
+    .auth-section {
+      display: block;
+      padding: 80px 20px;
+      min-height: calc(100vh - 200px);
+    }
+
+    .auth-container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .auth-box {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      animation: slideIn 0.5s ease;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .auth-box h2 {
+      color: #00796b;
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 14px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #00796b;
+    }
+
+    .form-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #00796b, #004d40);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.3s;
+    }
+
+    .form-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,121,107,0.4);
+    }
+
+    .forgot-password {
+      text-align: center;
+      margin-top: 15px;
+      color: #00796b;
+      text-decoration: none;
+      font-size: 14px;
+      display: block;
+    }
+
+    .forgot-password:hover {
+      text-decoration: underline;
+    }
+
+    /* Dashboard Styles */
+    .dashboard-container {
+      display: none;
+      flex: 1;
+      padding: 40px 20px;
+    }
+
+    .dashboard-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .welcome-banner {
+      background: linear-gradient(135deg, #00796b, #004d40);
+      color: white;
+      padding: 40px;
+      border-radius: 15px;
+      margin-bottom: 40px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .welcome-banner h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .welcome-banner p {
+      opacity: 0.9;
+      margin-bottom: 20px;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .dashboard-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .dashboard-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    }
+
+    .dashboard-card h3 {
+      color: #00796b;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+    }
+
+    .dashboard-card p {
+      color: #666;
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .card-icon {
+      font-size: 24px;
+    }
+
+    .card-btn {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #00796b, #004d40);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .card-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,121,107,0.3);
+    }
+
+    .members-section {
+      background: white;
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .members-section h3 {
+      color: #00796b;
+      margin-bottom: 25px;
+      font-size: 24px;
+    }
+
+    .member-item {
+      padding: 18px;
+      border-bottom: 1px solid #e0e0e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .member-item:last-child {
+      border-bottom: none;
+    }
+
+    .member-rank {
+      font-weight: bold;
+      color: #d81b60;
+    }
+
+    /* Footer Styles */
+    footer {
+      background: linear-gradient(135deg, #004d40, #00796b);
+      color: white;
+      padding: 50px 20px 20px;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 30px;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+
+    .footer-section p {
+      line-height: 1.8;
+      opacity: 0.9;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    .social-icon {
+      padding: 10px 20px;
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+      font-size: 14px;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-3px);
+    }
+
+    .facebook { background-color: #3b5998; }
+    .twitter { background-color: #1da1f2; }
+    .telegram { background-color: #0088cc; }
+    .tiktok { background-color: #000000; }
+    .instagram {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      opacity: 0.8;
+      font-size: 14px;
+    }
+
+    .quick-links {
+      list-style: none;
+    }
+
+    .quick-links li {
+      margin-bottom: 12px;
+    }
+
+    .quick-links a {
+      color: white;
+      text-decoration: none;
+      opacity: 0.9;
+      transition: opacity 0.3s;
+    }
+
+    .quick-links a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    /* Utility Classes */
+    .hidden {
+      display: none !important;
+    }
+
+    .show {
+      display: flex !important;
+    }
+
+    .show-block {
+      display: block !important;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 968px) {
+      .auth-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 72px;
+        left: -100%;
+        width: 100%;
+        background: linear-gradient(135deg, #004d40, #00796b);
+        flex-direction: column;
+        gap: 0;
+        padding: 20px;
+        transition: left 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .nav-links li {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .nav-links a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+        background: rgba(255,255,255,0.1);
+      }
+
+      .hero-section {
+        padding: 50px 20px;
+      }
+
+      .hero-section h1 {
+        font-size: 32px;
+      }
+
+      .hero-section p {
+        font-size: 16px;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+      }
+
+      .auth-section {
+        padding: 40px 15px;
+      }
+
+      .auth-box {
+        padding: 30px 20px;
+      }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .welcome-banner {
+        padding: 25px 20px;
+      }
+
+      .welcome-banner h2 {
+        font-size: 24px;
+      }
+
+      .members-section {
+        padding: 25px 20px;
+      }
+
+      .member-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 15px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .social-icons {
+        justify-content: center;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-section h1 {
+        font-size: 28px;
+      }
+
+      .hero-section p {
+        font-size: 15px;
+      }
+
+      .feature-card {
+        padding: 25px 20px;
+      }
+
+      .auth-box {
+        padding: 25px 15px;
+      }
+
+      .auth-box h2 {
+        font-size: 24px;
+      }
+
+      .dashboard-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header id="mainHeader">
+    <div class="header-content">
+      <div class="logo">🔬 Maths & Chemistry Group</div>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#" onclick="showPage('landing')">Home</a></li>
+          <li id="dashboardNav" class="hidden"><a href="#" onclick="showPage('dashboard')">Dashboard</a></li>
+          <li id="authNav" class="hidden">
+            <button class="auth-header-btn" onclick="scrollToAuth()">Sign In / Sign Up</button>
+          </li>
+          <li id="logoutNav" class="hidden">
+            <button class="logout-header-btn" onclick="logout()">Logout</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Landing Page -->
+  <main class="landing-page" id="landingPage">
+    <div class="hero-section">
+      <h1>🧮 Welcome to Maths & Chemistry Group</h1>
+      <p>Join our vibrant community of scholars dedicated to excellence in Mathematics and Chemistry. Collaborate, learn, and grow together!</p>
+      <div class="cta-buttons">
+        <button class="btn btn-primary" onclick="scrollToAuth()">Get Started</button>
+        <button class="btn btn-secondary" onclick="scrollToAuth()">Join Now</button>
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon">📚</div>
+        <h3>Study Resources</h3>
+        <p>Access comprehensive study materials and resources for Maths and Chemistry</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <h3>Community</h3>
+        <p>Connect with fellow students and share knowledge in a supportive environment</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📅</div>
+        <h3>Regular Meetings</h3>
+        <p>Participate in scheduled group discussions and study sessions</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>Goal Oriented</h3>
+        <p>Structured learning plans to help you achieve academic excellence</p>
+      </div>
+    </div>
+
+    <!-- Auth Section on Landing Page -->
+    <section class="auth-section" id="authSection">
+      <div class="auth-container">
+        <!-- Login Form -->
+        <div class="auth-box">
+          <h2>🔐 Login</h2>
+          <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" id="loginUsername" placeholder="Enter username" required>
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" id="loginPassword" placeholder="Enter password" required>
+            </div>
+            <button type="submit" class="form-btn">Login</button>
+            <a href="#" class="forgot-password" onclick="alert('Please contact the administrator to reset your password'); return false;">Forgot Password?</a>
+          </form>
+        </div>
+
+        <!-- Register Form -->
+        <div class="auth-box">
+          <h2>📝 Register</h2>
+          <form id="registerForm" onsubmit="handleRegister(event)">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="registerName" placeholder="Enter full name" required>
+            </div>
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" id="registerUsername" placeholder="Choose username" required>
+            </div>
+            <div class="form-group">
+              <label>Member Number</label>
+              <input type="text" id="registerMemberNumber" placeholder="Enter member number" required>
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" id="registerPassword" placeholder="Create password" required>
+            </div>
+            <button type="submit" class="form-btn">Register</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Dashboard -->
+  <div class="dashboard-container" id="dashboardPage">
+    <div class="dashboard-content">
+      <div class="welcome-banner">
+        <h2>Welcome back, <span id="userName">Member</span>! 👋</h2>
+        <p>Ready to continue your learning journey?</p>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="dashboard-card">
+          <h3><span class="card-icon">📘</span> Group Guidelines</h3>
+          <p>Review our community guidelines and code of conduct</p>
+          <button class="card-btn">View Guidelines</button>
+        </div>
+
+        <div class="dashboard-card">
+          <h3><span class="card-icon">📅</span> Group Meetings</h3>
+          <p>Check upcoming meetings and RSVP</p>
+          <button class="card-btn">View Schedule</button>
+        </div>
+
+        <div class="dashboard-card">
+          <h3><span class="card-icon">🧠</span> Discussion Plan</h3>
+          <p>Access our structured discussion topics</p>
+          <button class="card-btn">View Plan</button>
+        </div>
+
+        <div class="dashboard-card">
+          <h3><span class="card-icon">⏰</span> Timetable</h3>
+          <p>View weekly discussion schedule</p>
+          <button class="card-btn">View Timetable</button>
+        </div>
+
+        <div class="dashboard-card">
+          <h3><span class="card-icon">📚</span> Study Materials</h3>
+          <p>Download notes and past papers</p>
+          <button class="card-btn">Access Materials</button>
+        </div>
+
+        <div class="dashboard-card">
+          <h3><span class="card-icon">🎉</span> Group Events</h3>
+          <p>Stay updated on social events and parties</p>
+          <button class="card-btn">View Events</button>
+        </div>
+      </div>
+
+      <div class="members-section">
+        <h3>👥 Group Leadership</h3>
+        <div class="member-item">
+          <div>
+            <span class="member-rank">Chairman:</span>
+            <span> Dalmas Sudi</span>
+          </div>
+        </div>
+        <div class="member-item">
+          <div>
+            <span class="member-rank">Assistant Chairman:</span>
+            <span> To be announced</span>
+          </div>
+        </div>
+        <div class="member-item">
+          <div>
+            <span class="member-rank">Secretary:</span>
+            <span> To be announced</span>
+          </div>
+        </div>
+        <div class="member-item">
+          <div>
+            <span class="member-rank">Treasurer:</span>
+            <span> To be announced</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Us</h3>
+        <p>We are a dedicated community of Mathematics and Chemistry enthusiasts committed to academic excellence and collaborative learning.</p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul class="quick-links">
+          <li><a href="#" onclick="showPage('landing')">Home</a></li>
+          <li><a href="#" onclick="scrollToAuth()">Join Group</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Connect With Us</h3>
+        <div class="social-icons">
+          <a href="https://facebook.com" target="_blank" class="social-icon facebook">Facebook</a>
+          <a href="https://twitter.com" target="_blank" class="social-icon twitter">Twitter</a>
+          <a href="https://t.me" target="_blank" class="social-icon telegram">Telegram</a>
+          <a href="https://tiktok.com" target="_blank" class="social-icon tiktok">TikTok</a>
+          <a href="https://instagram.com" target="_blank" class="social-icon instagram">Instagram</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Maths & Chemistry Group. All rights reserved. | Built with ❤️ for learning</p>
+    </div>
+  </footer>
+
+  <script>
+    // Store user data
+    let currentUser = null;
+    let users = {};
+
+    // Initialize the page
+    function init() {
+      const savedUsers = sessionStorage.getItem('users');
+      if (savedUsers) {
+        users = JSON.parse(savedUsers);
+      }
+
+      const savedUser = sessionStorage.getItem('currentUser');
+      if (savedUser) {
+        currentUser = JSON.parse(savedUser);
+        updateNavigation(true);
+        showPage('dashboard');
+      } else {
+        showPage('landing');
+        updateNavigation(false);
+      }
+    }
+
+    // Show specific page
+    function showPage(page) {
+      document.getElementById('landingPage').classList.remove('show-block');
+      document.getElementById('dashboardPage').classList.remove('show');
+
+      if (page === 'landing') {
+        document.getElementById('landingPage').style.display = 'flex';
+        document.getElementById('dashboardPage').style.display = 'none';
+      } else if (page === 'dashboard') {
+        if (currentUser) {
+          document.getElementById('userName').textContent = currentUser.name;
+          document.getElementById('landingPage').style.display = 'none';
+          document.getElementById('dashboardPage').style.display = 'block';
+        } else {
+          showPage('landing');
+          scrollToAuth();
+        }
+      }
+      
+      // Close mobile menu if open
+      document.getElementById('navLinks').classList.remove('active');
+    }
+
+    // Scroll to auth section
+    function scrollToAuth() {
+      const authSection = document.getElementById('authSection');
+      authSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // Handle login
+    function handleLogin(event) {
+      event.preventDefault();
+      
+      const username = document.getElementById('loginUsername').value.trim();
+      const password = document.getElementById('loginPassword').value;
+
+      if (users[username] && users[username].password === password) {
+        currentUser = users[username];
+        sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
+        updateNavigation(true);
+        alert('Login successful! Welcome back, ' + currentUser.name + '!');
+        showPage('dashboard');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        alert('Invalid username or password. Please try again or register if you don\'t have an account.');
+      }
+    }
+
+    // Handle registration
+    function handleRegister(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('registerName').value.trim();
+      const username = document.getElementById('registerUsername').value.trim();
+      const memberNumber = document.getElementById('registerMemberNumber').value.trim();
+      const password = document.getElementById('registerPassword').value;
+
+      if (users[username]) {
+        alert('Username already exists. Please choose a different username.');
+        return;
+      }
+
+      const newUser = {
+        name: name,
+        username: username,
+        memberNumber: memberNumber,
+        password: password
+      };
+
+      users[username] = newUser;
+      sessionStorage.setItem('users', JSON.stringify(users));
+      
+      currentUser = newUser;
+      sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
+      updateNavigation(true);
+      
+      alert('Registration successful! Welcome to the group, ' + name + '!');
+      showPage('dashboard');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Handle logout
+    function logout() {
+      if (confirm('Are you sure you want to logout?')) {
+        currentUser = null;
+        sessionStorage.removeItem('currentUser');
+        updateNavigation(false);
+        showPage('landing');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        alert('You have been logged out successfully!');
+      }
+    }
+
+    // Update navigation based on login status
+    function updateNavigation(isLoggedIn) {
+      if (isLoggedIn) {
+        document.getElementById('dashboardNav').classList.remove('hidden');
+        document.getElementById('logoutNav').classList.remove('hidden');
+        document.getElementById('authNav').classList.add('hidden');
+      } else {
+        document.getElementById('dashboardNav').classList.add('hidden');
+        document.getElementById('logoutNav').classList.add('hidden');
+        document.getElementById('authNav').classList.remove('hidden');
+      }
+    }
+
+    // Toggle mobile menu
+    function toggleMobileMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const navLinks = document.getElementById('navLinks');
+      const menuBtn = document.querySelector('.mobile-menu-btn');
+      
+      if (!navLinks.contains(event.target) && !menuBtn.contains(event.target)) {
+        navLinks.classList.remove('active');
+      }
+    });
+
+    // Initialize on page load
+    window.onload = init;
+  </script>
+</body>
+</html><script><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maths & Chemistry Group Portal</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #e0f7fa, #fce4ec);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, #004d40, #00796b);
+      color: white;
+      padding: 20px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      background-color: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+
+    .logout-header-btn {
+      background: linear-gradient(135deg, #d81b60, #ad1457);
+      padding: 10px 25px;
+      border-radius: 25px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .logout-header-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(216,27,96,0.4);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* Landing Page Styles */
+    .landing-page {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 20px;
+      text-align: center;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-section h1 {
+      font-size: 48px;
+      color: #00796b;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      line-height: 1.2;
+    }
+
+    .hero-section p {
+      font-size: 20px;
+      color: #555;
+      margin-bottom: 40px;
+      line-height: 1.6;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 40px;
+      font-size: 16px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #00796b, #004d40);
+      color: white;
+      box-shadow: 0 4px 15px rgba(0,121,107,0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,121,107,0.6);
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, #d81b60, #ad1457);
+      color: white;
+      box-shadow: 0 4px 15px rgba(216,27,96,0.4);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(216,27,96,0.6);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 35px 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .feature-icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .feature-card h3 {
+      color: #00796b;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .feature-card p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Auth Section */
+    .auth-section {
+      display: none;
+      padding: 80px 20px;
+      min-height: calc(100vh - 200px);
+    }
+
+    .auth-container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .auth-box {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      animation: slideIn 0.5s ease;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .auth-box h2 {
+      color: #00796b;
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 14px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #00796b;
+    }
+
+    .form-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #00796b, #004d40);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.3s;
+    }
+
+    .form-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,121,107,0.4);
+    }
+
+    .forgot-password {
+      text-align: center;
+      margin-top: 15px;
+      color: #00796b;
+      text-decoration: none;
+      font-size: 14px;
+      display: block;
+    }
+
+    .forgot-password:hover {
+      text-decoration: underline;
+    }
+
+    /* Dashboard Styles */
+    .dashboard-container {
+      display: none;
+      flex: 1;
+      padding: 40px 20px;
+    }
+
+    .dashboard-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .welcome-banner {
+      background: linear-gradient(135deg, #00796b, #004d40);
+      color: white;
+      padding: 40px;
+      border-radius: 15px;
+      margin-bottom: 40px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .welcome-banner h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .welcome-banner p {
+      opacity: 0.9;
+      margin-bottom: 20px;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .dashboard-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .dashboard-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    }
+
+    .dashboard-card h3 {
+      color: #00796b;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+    }
+
+    .dashboard-card p {
+      color: #666;
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .card-icon {
+      font-size: 24px;
+    }
+
+    .card-btn {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #00796b, #004d40);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .card-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,121,107,0.3);
+    }
+
+    .members-section {
+      background: white;
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .members-section h3 {
+      color: #00796b;
+      margin-bottom: 25px;
+      font-size: 24px;
+    }
+
+    .member-item {
+      padding: 18px;
+      border-bottom: 1px solid #e0e0e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .member-item:last-child {
+      border-bottom: none;
+    }
+
+    .member-rank {
+      font-weight: bold;
+      color: #d81b60;
+    }
+
+    /* Footer Styles */
+    footer {
+      background: linear-gradient(135deg, #004d40, #00796b);
+      color: white;
+      padding: 50px 20px 20px;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 30px;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+
+    .footer-section p {
+      line-height: 1.8;
+      opacity: 0.9;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    .social-icon {
+      padding: 10px 20px;
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+      font-size: 14px;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-3px);
+    }
+
+    .facebook { background-color: #3b5998; }
+    .twitter { background-color: #1da1f2; }
+    .telegram { background-color: #0088cc; }
+    .tiktok { background-color: #000000; }
+    .instagram {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      opacity: 0.8;
+      font-size: 14px;
+    }
+
+    .quick-links {
+      list-style: none;
+    }
+
+    .quick-links li {
+      margin-bottom: 12px;
+    }
+
+    .quick-links a {
+      color: white;
+      text-decoration: none;
+      opacity: 0.9;
+      transition: opacity 0.3s;
+    }
+
+    .quick-links a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    /* Utility Classes */
+    .hidden {
+      display: none !important;
+    }
+
+    .show {
+      display: flex !important;
+    }
+
+    .show-block {
+      display: block !important;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 968px) {
+      .auth-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 72px;
+        left: -100%;
+        width: 100%;
+        background: linear-gradient(135deg, #004d40, #00796b);
+        flex-direction: column;
+        gap: 0;
+        padding: 20px;
+        transition: left 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .nav-links li {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .nav-links a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+        background: rgba(255,255,255,0.1);
+      }
+
+      .hero-section {
+        padding: 50px 20px;
+      }
+
+      .hero-section h1 {
+        font-size: 32px;
+      }
+
+      .hero-section p {
+        font-size: 16px;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+      }
+
+      .auth-section {
+        padding: 40px 15px;
+      }
+
+      .auth-box {
+        padding: 30px 20px;
+      }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .welcome-banner {
+        padding: 25px 20px;
+      }
+
+      .welcome-banner h2 {
+        font-size: 24px;
+      }
+
+      .members-section {
+        padding: 25px 20px;
+      }
+
+      .member-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 15px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .social-icons {
+        justify-content: center;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-section h1 {
+        font-size: 28px;
+      }
+
+      .hero-section p {
+        font-size: 15px;
+      }
+
+      .feature-card {
+        padding: 25px 20px;
+      }
+
+      .auth-box {
+        padding: 25px 15px;
+      }
+
+      .auth-box h2 {
+        font-size: 24px;
+      }
+
+      .dashboard-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header id="mainHeader">
+    <div class="header-content">
+      <div class="logo">🔬 Maths & Chemistry Group</div>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#" onclick="showPage('landing')">Home</a></li>
+          <li id="dashboardNav" class="hidden"><a href="#" onclick="showPage('dashboard')">Dashboard</a></li>
+          <li id="logoutNav" class="hidden">
+            <button class="logout-header-btn" onclick="logout()">Logout</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Landing Page -->
+  <main class="landing-page" id="landingPage">
+    <div class="hero-section">
+      <h1>🧮 Welcome to Maths & Chemistry Group</h1>
+      <p>Join our vibrant community of scholars dedicated to excellence in Mathematics and Chemistry. Collaborate, learn, and grow together!</p>
+      <div class="cta-buttons">
+        <button class="btn btn-primary" onclick="scrollToAuth()">Get Started</button>
+        <button class="btn btn-secondary" onclick="scrollToAuth()">Join Now</button>
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon">📚</div>
+        <h3>Study Resources</h3>
+        <p>Access comprehensive study materials and resources for Maths and Chemistry</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <h3>Community</h3>
+        <p>Connect with fellow students and share knowledge in a supportive environment</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📅</div>
+        <h3>Regular Meetings</h3>
+        <p>Participate in scheduled group discussions and study sessions</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>Goal Oriented</h3>
+        <p>Structured learning plans to help you achieve academic excellence</p>
+      </div>
+    </div>
+
+    <!-- Auth Section on Landing Page -->
+    <section class="auth-section" id="authSection">
+      <div class="auth-container">
+        <!-- Login Form -->
+        <div class="auth-box">
+          <h2>🔐 Login</h2>
+          <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" id="loginUsername" placeholder="Enter username" required>
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" id="loginPassword" placeholder="Enter password" required>
+            </div>
+            <button type="submit" class="form-btn">Login</button>
+            <a href="#" class="forgot-password" onclick="alert('Please contact the administrator to reset your password'); return false;">Forgot Password?</a>
+          </form>
+        </div>
+
+        <!-- Register Form -->
+        <div class="auth-box">
+          <h2>📝 Register</h2>
+          <form id="registerForm" onsubmit="handleRegister(event)">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="registerName" placeholder="Enter full name" required>
+            </div>
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" id="registerUsername" placeholder="Choose username" required>
+            </div>
+            <div class="form-group">
+              <label>Member Number</label>
+              <input type="text" id="registerMemberNumber" placeholder="Enter member number" required>
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" id="registerPassword" placeholder="Create password" required>
+            </div>
+            <button type="submit" class="form-btn">Register</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Dashboard -->
+  <div class="dashboard-container" id="dashboardPage">
+    <div class="dashboard-content">
+      <div class="welcome-banner">
+        <h2>Welcome back, <span id="userName">Member</span>! 👋</h2>
+        <p>Ready to continue your learning journey?</p>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="dashboard-card">
+          <h3><span class="card-icon">📘</span> Group Guidelines</h3>
+          <p>Review our community guidelines and code of conduct</p>
+          <button class="card-btn">View Guidelines</button>
+        </div>
+
+        <div class="dashboard-card">
+          <h3><span class="card-icon">📅</span> Group Meetings</h3>
+          <p>Check upcoming meetings and RSVP</p>
+          <button class="card-btn">View Schedule</button>
+        </div>
+
+        <div class="dashboard-card">
+          <h3><span class="card-icon">🧠</span> Discussion Plan</h3>
+          <p>Access our structured discussion topics</p>
+          <button class="card-btn">View Plan</button>
+        </div>
+
+        <div class="dashboard-card">
+          <h3><span class="card-icon">⏰</span> Timetable</h3>
+          <p>View weekly discussion schedule</p>
+          <button class="card-btn">View Timetable</button>
+        </div>
+
+        <div class="dashboard-card">
+          <h3><span class="card-icon">📚</span> Study Materials</h3>
+          <p>Download notes and past papers</p>
+          <button class="card-btn">Access Materials</button>
+        </div>
+
+        <div class="dashboard-card">
+          <h3><span class="card-icon">🎉</span> Group Events</h3>
+          <p>Stay updated on social events and parties</p>
+          <button class="card-btn">View Events</button>
+        </div>
+      </div>
+
+      <div class="members-section">
+        <h3>👥 Group Leadership</h3>
+        <div class="member-item">
+          <div>
+            <span class="member-rank">Chairman:</span>
+            <span> Dalmas Sudi</span>
+          </div>
+        </div>
+        <div class="member-item">
+          <div>
+            <span class="member-rank">Assistant Chairman:</span>
+            <span> To be announced</span>
+          </div>
+        </div>
+        <div class="member-item">
+          <div>
+            <span class="member-rank">Secretary:</span>
+            <span> To be announced</span>
+          </div>
+        </div>
+        <div class="member-item">
+          <div>
+            <span class="member-rank">Treasurer:</span>
+            <span> To be announced</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Us</h3>
+        <p>We are a dedicated community of Mathematics and Chemistry enthusiasts committed to academic excellence and collaborative learning.</p>
+   </script>
